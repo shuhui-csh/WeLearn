@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WeLearn</string>
+    <string name="main">主菜单</string>
+    <string name="teach">章节学习</string>
+    <string name="learn">章节练习</string>
+    <string name="practice">章节测试</string>
+    <string name="test">综合测试</string>
+    <string name="commeted">易错题目</string>
+    <string name="more">重选课程</string>
+    <string name="first">第一章</string>
+    <string name="second">第二章</string>
+    <string name="third">第三章</string>
+    <string name="fourth">第四章</string>
+    <string name="fifth">第五章</string>
+    <string name="sixth">第六章</string>
+    <string name="seventh">第七章</string>
+    <string name="eighth">第八章</string>
+    <string name="ninth">第九章</string>
+    <string name="tenth">第十章</string>
+    <string name="eleventh">第十一章</string>
+    <string name="twelfth">第十二章</string>
+    <string name="thirteen">第十三章</string>
+    <string name="fourteen">第十四章</string>
+    <string name="fifteen">第十五章</string>
+    <string name="sixteen">第十六章</string>
+    <string name="before">上一题</string>
+    <string name="next">下一题</string>
+    <string name="correct">正确率</string>
+    <string name="title_activity_course_selection">CourseSelectionActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="MySql">MySql课程</string>
+    <string name="SqlServer">SqlServer课程</string>
+    <string name="course_seletion_title_text">课程选择</string>
+    <string name="mysql_title_text">MySql课程</string>
+    <string name="sqlserver_title_text">SqlServer课程</string>
+    <string name="personal_advice">个性推荐</string>
+    <string name="relaxing">轻松一下</string>
+    <string name="session_learn">章节学习</string>
+    <string name="session_pratice">章节练习</string>
+    <string name="session_test">章节测试</string>
+    <string name="online_course">在线课堂</string>
+    <string name="title_activity_online_answer">在线解疑</string>
+    <string name="online_answer">在线解疑</string>
+    <string name="title_activity_online_fun">轻松一下</string>
+    <string name="loading">正努力为您加载，请稍等</string>
+    <string name="title_activity_recommend">RecommendActivity</string>
+
+</resources>

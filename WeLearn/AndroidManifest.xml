@@ -19,81 +19,81 @@
         android:icon="@drawable/sql"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.shc.welearn.ui.SplashActivity" >
+        <activity android:name="com.shc.welearn.activity.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.shc.welearn.ui.GuideActivity" >
+        <activity android:name="com.shc.welearn.activity.GuideActivity" >
         </activity>
-        <activity android:name="com.shc.welearn.ui.ViewPagerFragmentActivity" >
+        <activity android:name="com.shc.welearn.activity.ViewPagerFragmentActivity" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.TeachActivity"
+            android:name="com.shc.welearn.activity.TeachActivity"
             android:icon="@drawable/teach"
             android:label="@string/teach" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.LearnActivity"
+            android:name="com.shc.welearn.activity.LearnActivity"
             android:icon="@drawable/learn"
             android:label="@string/learn" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.PracticeActivity"
+            android:name="com.shc.welearn.activity.PracticeActivity"
             android:icon="@drawable/practice"
             android:label="@string/practice" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.TestActivity"
+            android:name="com.shc.welearn.activity.TestActivity"
             android:icon="@drawable/test"
             android:label="@string/test" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.CommetedActivity"
+            android:name="com.shc.welearn.activity.CommetedActivity"
             android:icon="@drawable/commeted"
             android:label="@string/commeted" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.MoreActivity"
+            android:name="com.shc.welearn.activity.MoreActivity"
             android:icon="@drawable/more"
             android:label="@string/more" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.TeachhtmlActivity"
+            android:name="com.shc.welearn.activity.TeachhtmlActivity"
             android:icon="@drawable/teach"
             android:label="@string/teach" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.LearnhtmlActivity"
+            android:name="com.shc.welearn.activity.LearnhtmlActivity"
             android:icon="@drawable/learn"
             android:label="@string/learn" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.ChoiceActivity"
+            android:name="com.shc.welearn.activity.ChoiceActivity"
             android:icon="@drawable/teach"
             android:label="@string/teach" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.EasyErrorActivity"
+            android:name="com.shc.welearn.activity.EasyErrorActivity"
             android:icon="@drawable/commeted"
             android:label="@string/commeted" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.CourseSelectionActivity"
+            android:name="com.shc.welearn.activity.CourseSelectionActivity"
             android:label="@string/title_activity_course_selection" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.OnlineAnswerActivity"
+            android:name="com.shc.welearn.activity.OnlineAnswerActivity"
             android:label="@string/title_activity_online_answer" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.OnlineFunActivity"
+            android:name="com.shc.welearn.activity.OnlineFunActivity"
             android:label="@string/title_activity_online_fun" >
         </activity>
         <activity
-            android:name="com.shc.welearn.ui.RecommendActivity"
+            android:name="com.shc.welearn.activity.RecommendActivity"
             android:label="@string/title_activity_recommend" >
         </activity>
     </application>
