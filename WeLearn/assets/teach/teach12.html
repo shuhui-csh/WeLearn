@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>第十二章 数据库安全性</title>
+</head>
+
+<body background="images/teachbackground.png">
+<h1><a name="top">第十二章 数据库安全性</a></h1>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h2><a href="#12.1">12.1  DBMS 的基本功能</a></h2>
+<h2><a href="#12.2">12.2  DBMS 的进程结构和多线索机制</a></h2>
+<h2><a href="#12.3">12.3  DBMS 系统结构</a></h2>
+<h2><a href="#12.4">12.4  语言处理</a></h2>
+<h2><a href="#12.5">12.5  数据存取层</a></h2>
+<h2><a href="#12.6">12.6  缓冲区管理</a></h2>
+<h2><a href="#12.7">12.7  数据库物理组织</a></h2>
+<h2><a href="#12.8">12.8  小结</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="12.1">12.1  DBMS 的基本功能</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+
+
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="12.2">12.2  DBMS 的进程结构和多线索机制</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h3><a href="#12.2.1">12.2.1 N方案：DBMS 与应用程序相融合的方案</a></h3>
+<h3><a href="#12.2.2">12.2.2 2N方案：一个DBMS 进程对应一个用户进程</a></h3>
+<h3><a href="#12.2.3">12.2.3 N+1方案：一个DBMS 进程对应所有用户进程</a></h3>
+<h3><a href="#12.2.4">12.2.4 N+M方案：M个DBMS 进程对应N个用户进程</a></h3>
+<h3><a href="#12.2.5">12.2.5 多线索（Multi_Threader）DBMS的概念</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.2.1">12.2.1 N方案：DBMS 与应用程序相融合的方案</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.2.2">12.2.2 2N方案：一个DBMS 进程对应一个用户进程</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.2.3">12.2.3 N+1方案：一个DBMS 进程对应所有用户进程</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.2.4">12.2.4 N+M方案：M个DBMS 进程对应N个用户进程</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.2.5">12.2.5 多线索（Multi_Threader）DBMS的概念</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="12.3">12.3  DBMS 系统结构</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h3><a href="#12.3.1">12.3.1 DBMS的层次结构</a></h3>
+<h3><a href="#12.3.2">12.3.2 RDBMS的运行过程示例</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.3.1">12.3.1 DBMS的层次结构</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.3.2">12.3.2 RDBMS的运行过程示例</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="12.4">12.4  语言处理</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h3><a href="#12.4.1">12.4.1 语言处理层的任务和工作步骤</a></h3>
+<h3><a href="#12.4.2">12.4.2 解释方法</a></h3>
+<h3><a href="#12.4.3">12.4.3 预编译方法</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.4.1">12.4.1 语言处理层的任务和工作步骤</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.4.2">12.4.2 解释方法</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.4.3">12.4.3 预编译方法</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="12.5">12.5  数据存取层</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h3><a href="#12.5.1">12.5.1 数据存取层的系统结构</a></h3>
+<h3><a href="#12.5.2">12.5.2 数据存取层的功能子系统</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.5.1">12.5.1 数据存取层的系统结构</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="12.5.2">12.5.2 数据存取层的功能子系统</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="12.6">12.6  缓冲区管理</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="12.7">12.7  数据库物理组织</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="12.8">12.8  小结</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

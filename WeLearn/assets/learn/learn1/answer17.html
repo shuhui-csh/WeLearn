@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>第一章 绪论</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body background="images/learnbackground.png">
+<h3><a name="a17.1">17.试述网状、层次数据库的优缺点。</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<div id="menu">
+<p>层次模型的优点主要有： ( l ）模型简单，对具有一对多层次关系的部门描述非常自然、直观，容易理解，这是层次数据库的突出优点； ( 2 ）用层次模型的应用系统性能好，特别是对于那些实体间联系是固定的且预先定义好的应用，采用层次模型来实现，其性能优于关系模型； ( 3 ）层次数据模型提供了良好的完整性支持。
+层次模型的缺点主要有： ( l ）现实世界中很多联系是非层次性的，如多对多联系、一个结点具有多个双亲等，层次模型不能自然地表示这类联系，只能通过引入冗余数据或引入虚拟结点来解决； ( 2 ）对插入和删除操作的限制比较多； ( 3 ）查询子女结点必须通过双亲结点。</p>
+<p>网状数据模型的优点主要有： ( l ）能够更为直接地描述现实世界，如一个结点可以有多个双亲； ( 2 ）具有良好的性能，存取效率较高。</p>
+<p>网状数据模型的缺点主要有： ( l ）结构比较复杂，而且随着应用环境的扩大，数据库的结构就变得越来越复杂，不利于最终用户掌握； ( 2 ）其 DDL 、 DML 语言复杂，用户不容易使用。由于记录之间联系是通过存取路径实现的，应用程序在访问数据时必须选择适当的存取路径。因此，用户必须了解系统结构的细节，加重了编写应用程序的负担。</p>
+<ul>
+<li><a href="learn1.html#1.16">上一题</a></li>
+<li><a href="learn1.html#1.17">返回</a></li>
+<li><a href="learn1.html#1.18">下一题</a></li>
+</ul>
+</div>
+</body>
+</html>

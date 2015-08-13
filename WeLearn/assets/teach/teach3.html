@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>第三章 关系数据库标准语言SQL</title>
+</head>
+
+<body background="images/teachbackground.png">
+<h1><a name="top">第三章 关系数据库标准语言SQL</a></h1>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h2><a href="#3.1">3.1  SQL概述</a></h2>
+<h2><a href="#3.2">3.2  数据定义</a></h2>
+<h2><a href="#3.3">3.3  数据查询</a></h2>
+<h2><a href="#3.4">3.4  数据更新</a></h2>
+<h2><a href="#3.5">3.5  视图</a></h2>
+<h2><a href="#3.6">3.6  小结</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="3.1">3.1  SQL概述</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ul><li>SQL(Structured Query Language)——结构化查询语言</li><br>
+<li>由于简单易学，功能丰富，得到业界的认可，成为国际标准</li><br>
+<li>SQL的特点</li><br>
+<ol start="1"><li>综合统一</li><br>
+<li>高度非过程化</li><br>
+<li>面向集合的操作方式</li><br>
+<li>以同一种语法结构提供两种使用方法</li><br>
+<li>语言简洁，易学易用</li></ol><br>
+<li>SQL语言支持关系数据库三级模式机构：</li><br>
+<ol start="1"><li>外模式对应于视图和部分基本表</li><br>
+<li>模式对应于基本表</li><br>
+<li>内模式对应于存储文件</li></ol><br></ul>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="3.2">3.2  数据定义</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h3><a href="#3.2.1">3.2.1 定义模式</a></h3>
+<h3><a href="#3.2.2">3.2.2 删除模式</a></h3>
+<h3><a href="#3.2.3">3.2.3 数据类型</a></h3>
+<h3><a href="#3.2.4">3.2.4 定义基本表</a></h3>
+<h3><a href="#3.2.5">3.2.5 修改和删除基本表</a></h3>
+<h3><a href="#3.2.6">3.2.6 建立与删除索引</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.2.1">3.2.1 定义模式</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ul><li>Create schema < 模式名 > authorization < 用户名 ></li><br>
+<li>调用创建模式命令的用户必须拥有DBA的权限或者获得了DBA授予的 create schema的权限。</li><br>
+<li>有些资料：schema相当于命名空间</li><br>
+<li>在 SQL Server 2005 和 SQL Server 2008 中，提倡"用户和架构分离",即一个用户可以对应多个架构,一个架构也可以对应多个用户create database --> 创建一个数据库 create schema --> 创建一个构架 当你在 SQL Server 里面， 使用 create database 创建一个数据库以后。 你可以不必额外的去创建 schema 因为 SQL Server 会 自动的创建一个 名字叫 dbo 的 schema </li><br>
+<li>给用户wang定义一个学生－课程模式s-t</li><br>
+<li>Create schema  s-t   authorization wang;</li><br>
+<li>Create schema authorization wang;</li><br>
+<li>没有指定模式名，默认模式名为用户名</li></ul><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.2.2">3.2.2 删除模式</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">												
+<ul><li>Drop schema < 模式名 > < cascade|restrict ></li><br>
+<li>其中cascade和restrict任选其一。</li><br>
+<li>选择cascade(级联)，表示在删除模式的同时把该模式中所有的数据库对象全部一起删掉</li><br>
+<li>选择restrict(限制)，表示如果该模式中已经定义了下属的数据库对象（表或图等），则拒绝该删除语句的执行。</li><br>
+<li>Drop schema zhang cascade；</li></ul><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.2.3">3.2.3 数据类型</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">	
+<ul><li>Char(n):长度为n的定长字符串</li><br>
+<li>Varchar(n):最大长度为n的变长字符串</li><br>
+<li>Int:长整数</li><br>
+<li>Smallint：短整数</li><br>	
+<li>Numeric(p,d):定点数，p位数字，小数后面d位数字</li><br>
+<li>Real：取决于机器精度的浮点数</li><br>
+<li>Double precision：取决于机器精度的双精度浮点数</li><br>
+<li>Float(n)：浮点数，精度至少位n位数字</li><br>
+<li>Date：日期，yyyy-mm-dd</li><br>
+<li>Time:时间，hh：mm：ss</li><br>
+<li>每一个属性来自一个域，其取值必须是域中的值</li><br>
+<li>SQL中域的概念用数据类型来实现。定义表的各个属性时要指明其数据类型及其长度。</li><br>
+<li>不同的RDBMS支持的数据类型不完全相同。</li></ul><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.2.4">3.2.4 定义基本表</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+CREATE TABLE < 表名 ><br><br>
+      （< 列名 > < 数据类型 >[ < 列级完整性约束条件 > ]，<br><br>
+	  [ < 列名 > < 数据类型 >[ < 列级完整性约束条件 >] ] ，<br><br>
+       … [ < 表级完整性约束条件 > ] ）；<br><br>
+<ul><li>< 表名 >：所要定义的基本表的名字</li><br>
+<li>< 列名 >：组成该表的各个属性（列）</li><br>
+<li>< 列级完整性约束条件 >：涉及相应属性列的完整性约束条件</li><br>
+<li>< 表级完整性约束条件 >：涉及一个或多个属性列的完整性约束条件 </li></ul><br>
+< 表级完整性约束 >在所有列定义后给出，包括四种：（涉及到多个列时）</li><br>
+<ul><li>Primary Key(< 列名 >，……)主码约束。注明一个或同时多个列为主码。如Primary（课程号，教师号）。</li><br>
+<li>Unique（< 列名 >，……）单值约束。注明一个或同时多个列为单值。如Unique（姓名，性别）定义了相应关系种的姓名和性别属性称为组合的单值属性</li><br>
+<li>Foreign key(< 列名 >，……) References< 父表名 >（< 列名 >，……）:注明一个或同时多个列为外码，
+		并给出对应的父表以及父表种被参照的主码中的所有列。</li><br>
+<li>Check（< 逻辑表达式 >）：检查约束。</li></ul><br> 
+
+< 表级完整性约束 >在所有列定义后给出，包括四种：（涉及到多个列时）
+<ul><li>Primary Key(< 列名 >，……)主码约束。注明一个或同时多个列为主码。如Primary（课程号，教师号）。</li><br>
+<li>Unique（< 列名 >，……）单值约束。注明一个或同时多个列为单值。如Unique（姓名，性别）定义了相应关系种的姓名和性别属性称为组合的单值属性</li><br>
+<li>Foreign key(< 列名 >，……) References< 父表名 >（< 列名 >，……）:
+	注明一个或同时多个列为外码，并给出对应的父表以及父表种被参照的主码中的所有列。</li><br>
+<li>Check（< 逻辑表达式 >）：检查约束。 </li></ul><br> 
+<ul><li>每一个基本表都属于某一个模式，一个模式包含多个基本表。</li><br> 
+<li>定义基本表时如何定义它所属的模式，一般有三种方法</li><br> 
+<ol start="1"><li>在表名中明显给出模式名</li><br> 
+<ul><li>Create table “s-t”.student（…）;</li></ul><br> 
+<li>在创建模式语句中同时创建表</li><br> 
+<ul><li>Create schema test authorization zhang</li><br> 
+<li>Create table student（sno char(7),sname char(10)…）;</li></ul><br> 
+<li>设置所属的模式，这样在创建表的时候就不需要给出模式名。</li><br></ol></ul>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.2.5">3.2.5 修改和删除基本表</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+修改基本表<br><br>
+ALTER TABLE < 表名 ><br><br>
+[ ADD < 新列名 > < 数据类型 > [ 完整性约束 ] ]<br><br>
+[ DROP < 完整性约束名或列名 > ]<br><br>
+[ Alter column < 列名 > < 数据类型 > ]；<br><br>
+<ul><li>< 表名 >：要修改的基本表</li><br> 
+<li>ADD子句：增加新列和新的完整性约束条件</li><br> 
+<li>DROP子句：删除指定的列或完整性约束条件</li><br> 
+<li>Alter column子句：用于修改列名和数据类型</li><br>
+<li>删除属性列</li><br>
+<ul><li>间接删除</li><br>
+<ul><li>把表中要保留的列及其内容复制到一个新表中</li><br>
+<li>删除原表</li><br>
+<li>再将新表重命名为原表名</li></ul><br>
+<li>直接删除</li><br>
+<ul><li>例：ALTER TABLE Student  Drop Scome；</li></ul></ul><br>
+</ul><br><br><br> 
+删除基本表<br><br>
+DROP TABLE <表名> [restrict|cascade]; <br><br>
+<ul><li>选择restrict:该表的删除是有限制条件的。欲删除的基本表不能被其他表的约束所引用，不能有视图，
+不能有触发器，不能有存储过程或者函数等。否则不能删除。</li><br>
+<li>选择cascade：该表的删除没有限制，在删除基本表的同时，相关的依赖对象将被一起删除。</li><br>
+<li>缺省情况是restrict。</li></ul><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.2.6">3.2.6 建立与删除索引</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ol start="1">
+<li>建立索引</li><br> 
+<ul><li>语句格式</li><br>
+CREATE [UNIQUE] [CLUSTER] INDEX < 索引名 > <br><br>  
+ON < 表名 >(< 列名 >[< 次序 >][,< 列名 >[< 次序 >] ]…)；<br><br>		
+<ul><li>用< 表名 >指定要建索引的基本表名字</li><br>
+<li>索引可以建立在该表的一列或多列上，各列名之间用逗号分隔</li><br>
+<li>用< 次序 >指定索引值的排列次序，升序：ASC，降序：DESC。缺省值：ASC</li><br>
+<li>UNIQUE表明此索引的每一个索引值只对应唯一的数据记录，即建索引的属性列的取值是唯一的。</li><br>
+<li>CLUSTER表示要建立的索引是聚簇索引，索引项的顺序与表中记录的物理顺序一致的索引组织。</li></ul><br>
+<li>唯一值索引</li><br>
+<ul><li>对于已含重复值的属性列不能建UNIQUE索引</li><br>
+<li>对某个列建立UNIQUE索引后，插入新记录时DBMS会自动检查新记录在该列上是否取了重复值。这相当于增加了一个UNIQUE约束</li></ul><br>
+<li>用户可以在最经常查询的列上建立聚簇索引以提高查询效率。</li><br>
+<li>一个基本表上最多只能建立一个聚簇索引。</li><br>
+<li>建立聚簇索引之后，更新该索引列上的数据时，往往导致表中记录的物理顺序的变更代价比较大。所以，对于经常更新的列不适合做聚簇索引。</li><br></ul>
+<li>删除索引</li><br><br>
+DROP INDEX < 索引名 >；<br><br>
+<ul><li>删除索引时，系统会从数据字典中删去有关该索引的描述。</li><br>
+<li>在RDBMS中，索引一般采用B+树、hash索引来实现。</li><br>
+<li>B＋树索引具有动态平衡的特点</li><br>
+<li>Hash索引具有查找速度快的特点。</li><br>
+<li>索引是关系数据库的内部实现技术，属于内模式的范畴。</li></ul><br>
+</ol>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="3.3">3.3  数据查询</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">	
+<h3><a href="#3.3.1">3.3.1 概述</a></h3>
+<h3><a href="#3.3.2">3.3.2 单表查询</a></h3>
+<h3><a href="#3.3.3">3.3.3 连接查询</a></h3>
+<h3><a href="#3.3.4">3.3.4 嵌套查询</a></h3>
+<h3><a href="#3.3.5">3.3.5 集合查询</a></h3>
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.3.1">3.3.1 概述</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+语句格式
+SELECT [ALL|DISTINCT] < 目标列表达式 ><br><br>
+[，< 目标列表达式 >] …<br><br>
+FROM < 表名或视图名 >[， < 表名或视图名 > ] …<br><br>
+[ WHERE < 条件表达式 > ]<br><br>
+[ GROUP BY < 列名1 > [ HAVING < 条件表达式 > ] ]<br><br>
+[ ORDER BY < 列名2 > [ ASC|DESC ] ]；<br><br>
+<ul><li>SELECT子句：指定要显示的属性列</li><br>
+<li>FROM子句：指定查询对象(基本表或视图)</li><br>
+<li>WHERE子句：指定查询条件</li><br>
+<li>GROUP BY子句：对查询结果按指定列的值分组，该属性列值相等的元组为一个组。通常会在每组中作用集函数。</li><br>
+<li>HAVING短语：筛选出只有满足指定条件的组</li><br>
+<li>ORDER BY子句：对查询结果表按指定列值的升序或降序排序 </li></ul><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.3.2">3.3.2 单表查询</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ul><li>查询仅涉及一个表，是一种最简单的查询操作</li><br>
+<ol start="1"><li>选择表中的若干列</li><br>
+<li>选择表中的若干元组</li><br>
+<li>对查询结果排序</li><br>
+<li>使用集函数</li><br>
+<li>对查询结果分组</li><br></ol></ul>
+<ul><li>[例1] 查询全体学生的学号与姓名。</li><br>
+<ul><li>SELECT Sno，Sname FROM Student；</li><br></ul>
+<li>[例2] 查询全体学生的姓名、学号、所在系。</li><br>
+<ul><li>SELECT Sname，Sno，Sdept FROM Student；</li><br></ul>
+<li>[例3] 查询全体学生的详细记录。</li><br>
+<ul><li>SELECT  Sno，Sname，Ssex，Sage，Sdept FROM Student； 
+        或SELECT * FROM Student； </li><br></ul>
+<li>[例4] 查全体学生的姓名及其出生年份。</li><br>
+<ul><li>SELECT Sname，2012-Sage FROM Student；</li><br></ul>
+<li>[例5] 查询全体学生的姓名、出生年份和所有系，要求用小写字母表示所有系名。</li><br>
+<ul><li>SELECT Sname, 'Year of Birth:‘, 2012-Sage, LOWER(Sdept) FROM Student；</li><br></ul>
+<li>[例6] 查询选修了课程的学生学号。</li><br>
+<ul><li>SELECT Sno FROM SC; 或(默认 ALL) SELECT ALL Sno FROM SC;</li><br>
+    <li>SELECT DISTINCT Sno FROM SC;</li><br></ul>
+</ul>
+查询满足条件的元组<br><br>
+WHERE子句常用的查询条件<br><br>
+<img src="images/thirdteach-1.png">
+<ol start="1"><li>比较大小</li><br>
+<ul><li>在WHERE子句的< 比较条件 >中使用比较运算符</li><br>
+<ul><li>= ，> ，< ， >= ，<= ， = 或 <  > ，!> ，!< </li><br>
+<li>逻辑运算符NOT  +  比较运算符</li></ul><br></ul></ol>
+<ul><li>[例8]  查询所有年龄在20岁以下的学生姓名及其年龄。</li><br>
+<ul><li>SELECT Sname，Sage FROM  Student WHERE Sage < 20；</li><br>
+<li>SELECT Sname，Sage FROM Student WHERE NOT Sage >= 20:</li></ul></ul><br>
+<ol start="2"><li>确定范围</li><br>
+<ul><li>使用谓词   BETWEEN …  AND  …  ,NOT BETWEEN  …  AND  …</li><br>
+<li>注意：</li><br> 
+<ul><li>BETWEEN a AND b，包括边界值a和b</li><br> 
+<li>not between a and b 则不包括边界值a和b</li></ul></ul><br> </ol>
+<ul><li>[例9] 查询年龄在19~20岁（包括19岁和20岁）之间的学生信息。</li><br>
+<ul><li>SELECT * FORM student where sage between 19 and 20</li></ul></ul><br>
+<ol start="3"><li>确定集合</li><br>
+<ul><li>使用谓词  IN < 值表 >,  NOT IN < 值表 ></li><br>
+<ul><li>< 值表 >：用逗号分隔的一组取值</li></ul></ul><br></ol>
+<ul><li>[例10]  查询信息系（IS）、数学系（MA）和计算机科学系（CS）学生的姓名和性别。</li><br>
+<ul><li>SELECT Sname，Ssex FROM  Student WHERE Sdept IN ( 'IS'，'MA'，'CS' );</li><br></ul>
+<li>[例11] 查询既不是信息系、数学系，也不是计算 机科学系的学生的姓名和性别。</li><br>
+<ul><li>SELECT Sname，Ssex FROM Student WHERE Sdept NOT IN ( 'IS'，'MA'，'CS' );</li><br></ul></ul><br>
+<ol start="4"><li>字符串匹配</li><br>
+<ul><li>[NOT] LIKE  ‘< 匹配串 >’  [ESCAPE ‘ < 换码字符 >’]</li><br>
+<ul><li>< 匹配串 >：指定匹配模板</li><br>
+<li>匹配模板：固定字符串或含通配符的字符串</li><br>
+<li>当匹配模板为固定字符串时，可以用 = 运算符取代 LIKE 谓词</li><br>
+<li>用 != 或 < >运算符取代 NOT LIKE 谓词</li></ul></ul><br>
+<ul><li>通配符</li><br>
+<ul><li>%(百分号)  代表任意长度（长度可以为0）的字符串</li><br>
+<li>例：a%b表示以a开头，以b结尾的任意长度的字符串。如acb，addgb，ab 等都满足该匹配串</li><br>
+<li>_(下横线)  代表任意单个字符</li><br>
+<li>例：a_b表示以a开头，以b结尾的长度为3的任意字符串。如acb，afb等都满足该匹配串</li><br></ul></ul></ol>
+<ul><li>匹配模板为固定字符串 </li><br>
+<li>[例12] 查询学号为95001的学生的详细情况。</li><br>
+<ul><li>SELECT *  FROM  Student  WHERE  Sno LIKE '95001'；</li><br>
+<li>等价于：SELECT  * FROM  Student WHERE Sno = '95001'；</li></ul><br></ul>
+<ul><li>匹配模板为含通配符的字符串 </li><br>
+<li>[例13] 查询所有姓刘学生的姓名、学号和性别。</li><br>
+<ul><li>SELECT Sname，Sno，Ssex FROM Student WHERE  Sname LIKE ‘刘%’；</li></ul><br>
+<li>[例14] 查询姓"欧阳"且全名为三个汉字的学生的姓名。</li><br>
+<ul><li>SELECT Sname FROM   Student WHERE  Sname LIKE ‘欧阳_ _’；</li><br>
+<li>注：一个汉字占两个字符的位置</li><br></ul>
+<li>[例15] 查询名字中第2个字为"阳"字的学生的姓名和学号。</li><br>
+<ul><li>SELECT Sname，Sno FROM Student WHERE Sname LIKE '_ _阳%'；</li></ul><br>
+<li>[例16] 查询所有不姓刘的学生姓名。</li><br>
+<ul><li>SELECT Sname FROM Student WHERE Sname NOT LIKE '刘%'；</li><br>
+<li>注：SQL Server中的匹配串不区分中英文字符</li><br></ul></ul>
+<ul><li>使用换码字符将通配符转义为普通字符</li><br>
+<li>[例17] 查询DB_Design课程的课程号和学分。</li><br>
+<ul><li>SELECT Cno，Ccredit FROM Course WHERE Cname LIKE ‘DB\_Design’  ESCAPE ‘\’;</li><br>
+<li>‘\’表示换码字符。表示匹配串中紧跟在’\’后面的字符’’不再具有通配符的含义</li></ul><br>
+<li>[例18] 查询以"DB_"开头，且倒数第3个字符为 i的课程的详细情况。</li><br>
+<ul><li>SELECT  * FROM   Course WHERE  Cname LIKE  'DB\ _%i_ _' ESCAPE ' \'；</li></ul><br>
+<li>[例19] 查询以“DB_”开头，“_”结尾，且倒数第3个字符为 i的课程的详细情况。</li><br>
+<ul><li>SELECT  * FROM   Course WHERE  Cname LIKE  'DB\ _%i_ \ _' ESCAPE ' \'；</li></ul><br>
+</ul>
+<ol start="5"><li>涉及空值的查询</li><br>
+<ul><li>使用谓词 IS NULL 或 IS NOT NULL</li><br>
+<li>“IS NULL” 不能用 “= NULL” 代替</li></ul><br></ol>
+<ul><li>[例20] 某些学生选修课程后没有参加考试，所以有选课记录，但没有考试成绩。查询缺少成绩的学生的学号和相应的课程号。</li><br>
+<ul><li>SELECT Sno，Cno FROM  SC WHERE Grade IS NULL；</li></ul><br>
+<li>[例21] 查所有有成绩的学生学号和课程号。</li><br>
+<ul><li>SELECT Sno，Cno FROM  SC WHERE  Grade IS NOT NULL；</li></ul><br></ul>
+<ol start="6"><li>多重条件查询</li><br>
+<ul><li>用逻辑运算符AND和 OR来联结多个查询条件</li><br>
+<ul><li>AND的优先级高于OR</li><br>
+<li>可以用括号改变优先级</li></ul><br>
+<li>可用来实现多种其他谓词</li><br>
+<ul><li>[NOT] IN</li><br>
+<li>[NOT] BETWEEN …   AND  …</li></ul></ul><br></ol>
+<ul><li>[例22] 查询CS系年龄在20岁以下的学生姓名。</li><br>
+<ul><li>SELECT Sname FROM  Student WHERE Sdept= 'CS' AND Sage< 20； </li></ul><br>
+<li>[例23] 查询信息系（IS）、数学系（MA）和计算机科学系（CS）学生的姓名和性别。</li><br>
+<ul><li>SELECT Sname，Ssex FROM   Student WHERE  Sdept= ' IS ' OR Sdept= ' MA' OR Sdept= ' CS '；</li></ul><br>
+<li>[例24] 查询年龄在20~23岁（包括20岁和23岁）之间的学生的姓名、系别和年龄。</li><br>
+<ul><li>SELECT Sname，Sdept，Sage FROM Student WHERE  Sage>=20 AND Sage<=23；</li></ul><br></ul>
+<ol start="7"><li>对查询结果排序</li><br>
+<ul><li>使用ORDER BY子句</li><br>
+<ul><li>可以按一个或多个属性列排序</li><br>
+<li>升序：ASC；降序：DESC；缺省值为升序</li></ul><br>
+<li>当排序列含空值时</li><br>
+<ul><li>ASC：排序列为空值的元组最后显示</li><br>
+<li>DESC：排序列为空值的元组最先显示</li></ul></ul><br> 
+<ul><li>[例25] 查询选修了3号课程的学生的学号及其成绩，查询结果按分数降序排列。</li><br>
+<ul><li>SELECT Sno，Grade FROM  SC WHERE  Cno= ' 3 ' ORDER BY Grade DESC； </li></ul><br>
+<li>[例26] 查询全体学生情况，查询结果按所在系的系号升序排列，同一系中的学生按年龄降序排列。</li><br>
+<ul><li>SELECT  * FROM  Student Order BY Sdept, Sage DESC； </li></ul><br></ul></ol>
+<ol start="8"><li>使用集函数</li><br>
+<ul><li>计数</li><br>
+<ul><li>COUNT（[DISTINCT|ALL] *）</li><br>
+<li>COUNT（[DISTINCT|ALL] < 列名 >）</li></ul><br>
+<li>计算总和</li><br>
+<ul><li>SUM（[DISTINCT|ALL] < 列名 >）</li></ul><br>	
+<li>计算平均值</li><br>
+<ul><li>AVG（[DISTINCT|ALL] < 列名 >）</li></ul><br>
+<li>求最大值</li><br>
+<ul><li>MAX（[DISTINCT|ALL] < 列名 >）</li></ul><br>	
+<li>求最小值</li><br>
+<ul><li>MIN（[DISTINCT|ALL] < 列名 >）</li></ul><br>	
+<li>DISTINCT短语：在计算时要取消指定列中的重复值</li><br>
+<li>ALL短语：不取消重复值</li><br>
+<li>ALL为缺省值</li><br>
+<li>有些DBMS，聚集函数遇到空值时，除count(*)外，都跳过空值而只处理非空值</li><br>
+<li>SQL Server，聚集函数遇到空值都跳过</li><br></ul></ol>
+<ul><li>[例27] 查询学生总人数。</li><br>
+<ul><li>SELECT COUNT(*)FROM  Student；</li></ul><br>
+<li>[例28] 查询选修了课程的学生人数。</li><br>
+<ul><li>SELECT COUNT(DISTINCT Sno) FROM SC；</li><br>
+<li>注：用DISTINCT以避免重复计算学生人数</li><br></ul>
+<li>[例29] 计算1号课程的学生平均成绩。</li><br>
+<ul><li>SELECT AVG(Grade) FROM SC WHERE Cno= ' 1 '；</li></ul><br>
+<li>[例30] 查询选修1号课程的学生最高分数。</li><br>
+<ul><li>SELECT MAX(Grade) FROM SC WHER Cno= ' 1 '；</li></ul><br></ul>
+<ol start="9"><li>使用GROUP BY子句分组</li><br>
+<ul><li>使用GROUP BY子句分组将查询结果按某一列或多列的值分组，值相等的为一组。</li><br>
+<li>未对查询结果分组，集函数将作用于整个查询结果</li><br>
+<li>对查询结果分组后，集函数将分别作用于每个组 </li><br></ul></ol>
+<ul><li>[例31] 求各个课程号及相应的选课人数。</li><br>
+<ul><li>SELECT Cno，COUNT(Sno) FROM SC GROUP BY Cno；</li></ul><br></ul>
+<ol start="10"><li>使用HAVING短语筛选最终输出结果</li><br></ol>
+<ul><li>[例32] 查询选修了3门以上(不包括3门)课程的学生学号。</li><br>
+<ul><li>SELECT Sno FROM  SC  GROUP BY Sno  HAVING  COUNT(*) >3； </li></ul><br>
+<li>[例33] 查询有3门或3门以上课程是90分以上的学生的学号及（90分以上的）课程数</li><br>
+<ul><li>SELECT  Sno,  COUNT(*) FROM   SC WHERE Grade>=90 GROUP BY Sno  HAVING COUNT(*)>=3; 
+</li></ul><br></ul><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.3.3">3.3.3 连接查询</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.3.4">3.3.4 嵌套查询</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.3.5">3.3.5 集合查询</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="3.4">3.4  数据更新</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h3><a href="#3.4.1">3.4.1 插入数据</a></h3>
+<h3><a href="#3.4.2">3.4.2 修改数据</a></h3>
+<h3><a href="#3.4.3">3.4.3 删除数据</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.4.1">3.4.1 插入数据</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.4.2">3.4.2 修改数据</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.4.3">3.4.3 删除数据</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+
+
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="3.5">3.5  视图</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h3><a href="#3.5.1">3.5.1 定义视图</a></h3>
+<h3><a href="#3.5.2">3.5.2 查询视图</a></h3>
+<h3><a href="#3.5.3">3.5.3 更新视图</a></h3>
+<h3><a href="#3.5.4">3.5.4 视图的作用</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.5.1">3.5.1 定义视图</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.5.2">3.5.2 查询视图</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.5.3">3.5.3 更新视图</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="3.5.4">3.5.4 视图的作用</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="3.6">3.6  小结</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+
+</body>
+</html>

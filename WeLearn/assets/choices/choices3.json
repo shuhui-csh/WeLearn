@@ -1,0 +1,541 @@
+﻿{
+	"Choices" : [
+		{ 
+			"choice" : {
+				"Title" : "下列的SQL语句中，(  )不是数据定义语句。",
+				"A" : "CREATE TABLE",
+				"B" : "DROP VIEW",
+				"C" : "CREATE VIEW",
+				"D" : "GRANT",
+				"Answer" : "D"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SQL语言是(  )的语言，容易学习",
+				"A" : "过程化",
+				"B" : "非过程化",
+				"C" : "格式化",
+				"D" : "导航式",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在视图上不能完成的操作是(  )",
+				"A" : "更新视图",
+				"B" : "查询",
+				"C" : "在视图上定义新的表",
+				"D" : "在视图上定义新的视图",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SQL语言集数据查询、数据操纵、数据定义和数据控制功能于一体，其中，CREATE、DROP、ALTER 语句是实现哪种功能(  )",
+				"A" : "数据查询",
+				"B" : "数据操纵",
+				"C" : "数据定义",
+				"D" : "数据控制",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SQL语言中，删除一个视图的命令是(  )",
+				"A" : "DELETE",
+				"B" : "DROP",
+				"C" : "CLEAR",
+				"D" : "REMOVE",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在SQL语言中的视图VIEW是数据库的(  )",
+				"A" : "外模式",
+				"B" : "模式",
+				"C" : "内模式",
+				"D" : "存储模式",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "若要撤销数据库中已经存在的表S，可用(  )",
+				"A" : "DELETE TABLE S",
+				"B" : "DELETE S",	
+				"C" : "DROP TABLE S",
+				"D" : "DROP S",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "若要在基本表S中增加一列CN（课程名），可用(  )",
+				"A" : "ADD TABLE S (CN CHAR(8))",
+				"B" : "ADD TABLE S ALTER (CN CHAR(8))",
+				"C" : "ALTER TABLE S ADD CN CHAR(8) ",
+				"D" : "ALTER TABLE S (ADD CN CHAR(8)) ",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "学生关系模式 S（S＃，Sname，Sex，Age），S的属性分别表示学生的学号、姓名、性别、年龄。要 在表S中删除一个属性“年龄”，可选用的SQL语句是(  )",
+				"A" : "DELETE Age from S",
+				"B" : "ALTER TABLE S DROP COLUMN Age",
+				"C" : "UPDATE S Age",
+				"D" : "ALTER TABLE S ‘Age’",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "有关系S（S＃，SNAME，SAGE），C（C＃，CNAME），SC（S＃，C＃，GRADE）。其中S＃是学生 号，SNAME是学生姓名，SAGE是学生年龄， C＃是课程号，CNAME是课程名称。要查询选修“ACCESS”课的年龄不小于20的全体学生姓名的SQL语句是 SELECT SNAME FROM S，C，SC WHERE子句。这里的WHERE子句的内容是(  )",
+				"A" : "S.S# = SC.S# and C.C# = SC.C# and SAGE>=20 and CNAME=‘ACCESS’",
+				"B" : "S.S# = SC.S# and C.C# = SC.C# and SAGE in>=20 and CNAME in ‘ACCESS",
+				"C" : "SAGE in>=20 and CNAME in ‘ACCESS’",
+				"D" : "SAGE>=20 and CNAME=’ ACCESS’",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "设关系数据库中一个表S的结构为S（SN，CN，grade），其中SN为学生名，CN为课程名，二者均 为字符型；grade为成绩，数值型，取值范围0－100。若要把“张二的化学成绩80分”插入S中，则可用(  )",
+				"A" : "ADD INTO S VALUES(‘张二’, ‘化学’,‘80’)",
+				"B" : "INSERT INTO S VALUES(‘张二’, ‘化学’,‘80’)",
+				"C" : "ADD INTO S VALUES(‘张二’, ‘化学’, 80)",
+				"D" : "INSERT INTO S VALUES(‘张二’, ‘化学’, 80)",
+				"Answer" : "D"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "设关系数据库中一个表S的结构为：S（SN，CN，grade），其中SN为学生名，CN为课程名，二者均 为字符型；grade为成绩，数值型，取值范围0－100。若要更正王二的化学成绩为85分，则可用(  )",
+				"A" : "UPDATE S SET grade＝85 WHERE SN＝‘王二’ AND CN＝‘化学’",
+				"B" : "UPDATE S SET grade＝’85’ WHERE SN＝’王二’ AND CN＝’化学’",
+				"C" : "UPDATE grade＝85 WHERE SN＝’王二’ AND CN＝’化学’",
+				"D" : "UPDATE grade＝’85’ WHERE SN＝’王二’ AND CN＝’化学’",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在SQL语言中，子查询是(  )",
+				"A" : "返回单表中数据子集的查询语言",
+				"B" : "选取多表中字段子集的查询语句",
+				"C" : "选取单表中字段子集的查询语句",
+				"D" : "嵌入到另一个查询语句之中的查询语句",
+				"Answer" : "D"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "有关系S（S＃，SNAME，SEX），C（C＃，CNAME），SC（S＃，C＃，GRADE）。其中S＃是学生 号，SNAME是学生姓名，SEX是性别， C＃是课程号，CNAME是课程名称。要查询选修“数据库”课的全体男生姓名的SQL语句是SELECT SNAME FROM S，C，SC WHERE子句。这里的WHERE子句的内容是(  )",
+				"A" : "S.S# = SC.S# and C.C# = SC.C# and SEX=‘男’ and CNAME=‘数据库’",
+				"B" : "S.S# = SC.S# and C.C# = SC.C# and SEX in’男’and CNAME in‘数据库’",
+				"C" : "SEX ‘男’ and  CNAME ‘数据库’",
+				"D" : "S.SEX=‘男’ and CNAME=‘数据库’",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "若用如下的SQL语句创建了一个表SC： CREATE TABLE SC （S# CHAR（6） NOT NULL，C# CHAR （3） NOT NULL，SCORE INTEGER，NOTE CHAR（20））；向SC表插入如下行时，(  )行可以被插入 。",
+				"A" : "（’201009’，’111’，60，必修）",
+				"B" : "（’200823’，’101’，NULL，NULL）",
+				"C" : "（NULL，’103’，80，’选修’）",
+				"D" : "（’201132’，NULL，86，’ ’）",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "假设学生关系S（S＃，SNAME，SEX），课程关系C（C＃，CNAME），学生选课关系SC（S＃，C ＃，GRADE）。要查询选修“Computer”课的男生姓名，将涉及到关系(  )",
+				"A" : "S",
+				"B" : "S，SC",
+				"C" : "C，SC",
+				"D" : "S，C，SC",
+				"Answer" : "D"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SQL属于(  )数据库语言",
+				"A" : "关系型",
+				"B" : "网状型",
+				"C" : "层次型",
+				"D" : "面向对象型",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "当两个子查询的结果(  )时，可以执行并、交、差操作",
+				"A" : "结构完全不一致",
+				"B" : "结构完全一致",
+				"C" : "结构部分一致",
+				"D" : "主键一致",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SQL中创建基本表应使用(  )语句",
+				"A" : "CREATE  SCHEMA",
+				"B" : "CREATE  TABLE",
+				"C" : "CREATE  VIEW",
+				"D" : "CREATE  DATEBASE",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : " SQL中创建视图应使用(  )语句",
+				"A" : "CREATE SCHEMA",
+				"B" : "CREATE  TABLE",
+				"C" : "CREATE  VIEW",
+				"D" : "CREATE  DATEBASE",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "视图创建完毕后，数据字典中存放的是(  )",
+				"A" : "查询语句",
+				"B" : "查询结果",
+				"C" : "视图定义",
+				"D" : "所引用的基本表的定义",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "关系代数中的π运算符对应SELECT语句中的(  )子句",
+				"A" : "SELECT",
+				"B" : "FROM",
+				"C" : "WHERE",
+				"D" : "GROUP BY",
+				"Answer" : "A"
+			}
+		},{ 
+			"choice" : {
+				"Title" : "关系代数中的σ运算符对应SELECT语句中的(  )子句",
+				"A" : "SELECT",
+				"B" : "FROM",
+				"C" : "WHERE",
+				"D" : "GROUP BY",
+				"Answer" : "D"
+			}
+		},{ 
+			"choice" : {
+				"Title" : "WHERE子句的条件表达式中．可以匹配0个到多个字符的通配符是(  )",
+				"A" : "*",
+				"B" : "%",
+				"C" : "_",
+				"D" : "?",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "WHERE子句的条件表达式中，可以匹配单个字符的通配符是(  )",
+				"A" : "*",
+				"B" : "%",
+				"C" : "_",
+				"D" : "?",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SELECT语句中与HAVING子句同时使用的是(  )子句",
+				"A" : "ORDER BY",
+				"B" : "WHERE",
+				"C" : "GROUP BY",
+				"D" : "无需配合",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "与WHERE G BETWEEN 60 AND l00语句等价的子句是(  )",
+				"A" : "WHERE  G>60 AND G<100",
+				"B" : "WHERE  G>=60 AND G<100",
+				"C" : "WHERE  G>60 AND G<＝100",
+				"D" : "WHERE  G>=60 AND G<=100",
+				"Answer" : "D"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SELECT语句执行的结果是(  )",
+				"A" : "数据项",
+				"B" : "元组",
+				"C" : "表",
+				"D" : "视图",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "下列聚合函数中不忽略空值 (null) 的是(  )",
+				"A" : "SUM (列名)",
+				"B" : "MAX (列名)",
+				"C" : "COUNT ( * )",
+				"D" : "AVG (列名)",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : " SQL中，下列涉及空值的操作，不正确的是(  )",
+				"A" : "AGE IS NULL",
+				"B" : "AGE IS NOT NULL",
+				"C" : "AGE = NULL",
+				"D" : "NOT (AGE IS NULL)",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "视图是一个“虚表”，视图的构造基于(  )",
+				"A" : "基本表",
+				"B" : "视图",
+				"C" : "基本表或视图",
+				"D" : "数据字典",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SQL语言中，条件“年龄BETWEEN 20 AND 30”表示年龄在20至30之间，且(  )",
+				"A" : "包括20岁和30岁",
+				"B" : "不包括20岁和30岁",
+				"C" : "包括20岁但不包括30岁",
+				"D" : "包括30岁但不包括20岁",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "为了使索引键的值在基本表中唯一，在建立索引的语句中应使用保留字(  )",
+				"A" : "UNIQUE",
+				"B" : "COUNT",
+				"C" : "DISTINCT",
+				"D" : "UNION",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在SQL语言中，用户可以直接操作的是(  )",
+				"A" : "基本表",
+				"B" : "视图",
+				"C" : "基本表和视图",
+				"D" : "基本表或视图",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在SQL的SELECT语句中，与选择运算对应的命令动词是(  )",
+				"A" : "SELECT",
+				"B" : "FROM",
+				"C" : "WHERE",
+				"D" : "GROUP BY",
+				"Answer" : "C"
+			}
+		},{ 
+			"choice" : {
+				"Title" : "在数据库与宿主语言之间传递信息是通过(  )",
+				"A" : "全局变量",
+				"B" : "局部变量",
+				"C" : "公共数据区",
+				"D" : "系统缓冲区",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在SQL语言中，对输出结果排序的是(  )",
+				"A" : "ORDER BY",
+				"B" : "WHERE",
+				"C" : "GROUP BY",
+				"D" : "HAVING",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在SELECT语句中使用*，表示(  )",
+				"A" : "选择任何属性",
+				"B" : "选择全部属性",
+				"C" : "选择全部元组",
+				"D" : "选择主码",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "使用CREATE SCHEMA语句建立的是(  )",
+				"A" : "数据库",
+				"B" : "表",
+				"C" : "视图",
+				"D" : "索引",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : " 在SELECT语句中使用MAX(列名)时，列名应该(  )",
+				"A" : "必须是数值型",
+				"B" : "必须是字符型",
+				"C" : "必须是数值型或字符型",
+				"D" : "不限制数据类型",
+				"Answer" : "D"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在SELECT语句中使用GROUP BY SNO时，SNO必须(  )",
+				"A" : "在WHERE中出现",
+				"B" : "在FROM中出现",
+				"C" : "在SELECT中出现",
+				"D" : "在HAVING中出现",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在嵌入式SQL中，当SQL语句中引用宿主语言的程序变量时，程序变量应(  )",
+				"A" : "加前缀$",
+				"B" : "加后缀$",
+				"C" : "加前缀:",
+				"D" : "加后缀:",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : " 在SELECT语句中，对应关系代数中“投影”运算的语句是(  )",
+				"A" : "SELECT",
+				"B" : "FROM",
+				"C" : "WHERE",
+				"D" : "SET",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "视图建立后，在数据字典中存放的是(  )",
+				"A" : "查询语句",
+				"B" : "视图的内容",
+				"C" : "视图的定义",
+				"D" : "产生视图的表的定义",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在SQL语言中，DELETE语句的作用是(  )",
+				"A" : "删除基本表",
+				"B" : "删除视图",
+				"C" : "删除基本表和视图",
+				"D" : "删除基本表和视图的元组",
+				"Answer" : "D"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "在SQL语言中使用FOREIGN KEY时，与之配合的语句是(  )",
+				"A" : "EXISTS",
+				"B" : "EXCEPT",
+				"C" : "TABLE",
+				"D" : "REFERENCES",
+				"Answer" : "D"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "对基本表S，执行操作DROP TABLES RESTRICT的作用是(  )",
+				"A" : "删除基本表S中的所有元组",
+				"B" : "把基本表S及产生的一切视图全部删除",
+				"C" : "当没有由S中的列产生的视图或约束时将表S删除",
+				"D" : "删除表S，将引用表S的视图中的一切视图的属性值置为空值",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "下列关于视图与基本表的对比正确的是(  )",
+				"A" : "视图的定义功能强于基本表",
+				"B" : "视图的操作功能强于基本表",
+				"C" : "视图的数据控制功能弱于基本表",
+				"D" : "上面提到的三种功能二者均相当",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "下列关于视图的说法错误的是(  )",
+				"A" : "视图是从一个或多个基本表导出的表，它是虚表",
+				"B" : "某一用户可以定义若干个视图",
+				"C" : "视图一经定义就可以和基本表一样被查询、删除和更新",
+				"D" : "视图可以用来定义新的视图",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "下列关于关系数据库语言SQL语言的说法不正确的是(  )",
+				"A" : "SQL支持数据库的三级模式结构",
+				"B" : "SQL的功能包括查询、操作、定义和控制等四个方面",
+				"C" : "SQL是作为独立语言由联机终端用户在交互环境下使用的命令语言，它不能嵌入高级语言内",
+				"D" : "SQL除应用在数据库领域外，还在软件工程、人工智能领域有广泛的应用",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SQL与C语言处理记录的方式是不同的。当将SQL语句嵌入到C语言程序时，为协调两者而引入(  )",
+				"A" : "堆",
+				"B" : "栈",
+				"C" : "游标",
+				"D" : "缓冲区",
+				"Answer" : "C"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "对所有的视图都可以进行下面哪一个操作(  )",
+				"A" : "插入",
+				"B" : "选择",
+				"C" : "更新",
+				"D" : "删除",
+				"Answer" : "B"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : "SQL语言具有数据定义、数据操纵和数据控制的功能，它的一次查询的结果是一个(  )",
+				"A" : "表",
+				"B" : "记录",
+				"C" : "元组",
+				"D" : "数据项",
+				"Answer" : "A"
+			}
+		},
+		{ 
+			"choice" : {
+				"Title" : " SQL的DDL语句不包括(  )",
+				"A" : "SELECT",
+				"B" : "CREATE TABLE",
+				"C" : "DROP VIEW",
+				"D" : "DROP INDEX",
+				"Answer" : "A"
+			}
+		}
+	]	
+}

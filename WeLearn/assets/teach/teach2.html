@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>第二章 关系数据库</title>
+</head>
+
+<body background="images/teachbackground.png">
+<h1><a name="top">第二章 关系数据库</a></h1>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h2><a href="#2.1">2.1  关系模型概述</a></h2>
+<h2><a href="#2.2">2.2  关系数据结构</a></h2>
+<h2><a href="#2.3">2.3  关系的完整性</a></h2>
+<h2><a href="#2.4">2.4  关系代数</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="2.1">2.1  关系模型概述</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ul><li>关系数据库系统</li><br>
+<ul><li>是支持关系模型的数据库系统</li></ul><br>
+<li>关系模型的组成</li><br>
+<ul><li>关系数据结构</li><br>
+<li>关系操作集合</li><br>
+<li>关系完整性约束</li></ul></ul><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="2.2">2.2  关系数据结构</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ul><li>单一的数据结构----关系</li><br>
+<ul><li>现实世界的实体以及实体间的各种联系均用关系来表示</li></ul><br>
+<li>数据的逻辑结构----二维表</li><br>
+<ul><li>从用户角度，关系模型中数据的逻辑结构是一张二维表</li></ul><br>
+<li>关系模型建立在集合代数的基础上</li><br>
+<li>关系数据结构的基本概念</li></ul><br>
+<h3><a href="#2.2.1">2.2.1 关系</a></h3>
+<h3><a href="#2.2.2">2.2.2 关系模式</a></h3>
+<h3><a href="#2.2.3">2.2.3 关系数据库</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.2.1">2.2.1 关系</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ol start="1"><li>域（Domain）</li><br>
+<ul><li>域是一组具有相同数据类型的值的集合。例:</li><br>
+<ul><li>整数</li><br>
+<li>实数</li><br>
+<li>介于某个取值范围的整数</li><br>
+<li>长度指定长度的字符串集合</li><br>
+<li>{‘男’，‘女’}</li><br>
+<li>介于某个取值范围的日期</li></ul></ul></ol><br>
+<ol start="2"><li>笛卡尔积（Cartesian Product）</li><br>
+<ol start="1">
+<li>笛卡尔积</li><br>
+<ul><li>给定一组域D1，D2，…，Dn，这些域中可以有相同的。D1，D2，…，
+		Dn的笛卡尔积为：D1×D2×…×Dn＝｛（d1，d2，…，dn）｜di∈Di，i＝1，2，…，n｝</li><br>
+<li>所有域的所有取值的一个组合，不能重复</li></ul><br>
+<li>元组（Tuple）</li><br>
+<ul><li>笛卡尔积中每一个元素（d1，d2，…，dn）叫作一个n元组（n-tuple）或简称元组。</li></ul><br>
+<li>分量（Component</li><br>
+<ul><li>笛卡尔积元素（d1，d2，…，dn）中的每一个值di叫作一个分量。</li></ul><br>
+<li>基数（Cardinal number）</li><br>
+<ul><li>若Di（i＝1，2，…，n）为有限集，其基数为mi（i＝1，2，…，n），则D1×D2×…×Dn的基数M为：</li></ul></ol><br>
+</ol>
+<img src="images/secondteach-1.png"><br><br>
+<ul><ol start="5"><li>笛卡尔积的表示方法</li><br>
+<ul><li>笛卡尔积可表示为一个二维表。表中的每行对应一个元组，表中的每列对应一个域。</li></ul></ol></ul><br>
+<ol start="3"><li>关系（Relation）</li><br>
+<ol start="1"><li>关系<br>
+<ul><li>D1×D2×…×Dn的子集叫作在域D1，D2，…，Dn上的关系，表示为 R（D1，D2，…，Dn）</li><br>
+<li>R：关系名</li><br>
+<li>n：关系的目或度（Degree）</li></ul><br>
+<li>元组</li><br>
+<ul><li>关系中的每个元素是关系中的元组，通常用t表示。</li></ul><br>
+<li>单元关系与二元关系</li><br>
+<ul><li>当n=1时，称该关系为单元关系（Unary relation）。</li><br>
+<li>当n=2时，称该关系为二元关系（Binary relation）。</li></ul><br>
+<li>关系的表示</li><br>
+<ul><li>关系也是一个二维表，表的每行对应一个元组，表的每列对应一个域。</li></ul><br>
+<li>属性</li><br>
+<ul><li>关系中不同列可以对应相同的域，为了加以区分，必须对每列起一个名字，称为属性（Attribute）。</li><br>
+<li>n目关系必有n个属性。</li></ul><br>
+<li>码</li><br>
+<ul><li>候选码（Candidate key）</li><br>
+<ul><li>若关系中的某一属性组的值能唯一地标识一个元组，则称该属性组为候选码</li><br>
+<li>在最简单的情况下，候选码只包含一个属性。</li></ul><br>
+<li>全码（All-key）</li><br>
+<ul><li>在最极端的情况下，关系模式的所有属性组是这个关系模式的候选码，称为全码（All-key）</li></ul><br>
+<li>主码（Primary key）</li><br>
+<ul><li>若一个关系有多个候选码，则选定其中一个为主码（Primary key）</li><br>
+<li>主码的诸属性称为主属性（Prime attribute）。不包含在任何侯选码中的属性称为非码属性（Non-key attribute）</li></ul></ul><br>
+<li>三类关系</li><br>
+<ul><li>基本关系（基本表或基表）</li><br>
+<ul><li>实际存在的表，是实际存储数据的逻辑表示</li></ul><br>
+<li>查询表</li><br>
+<ul><li>查询结果对应的表</li></ul><br>
+<li>视图表</li><br>
+<ul><li>由基本表或其他视图表导出的表，是虚表，不对应实际存储的数据</li></ul></ul><br>
+<li>基本关系的性质</li><br>
+<ol start="1">
+<li>列是同质的（Homogeneous）</li><br>
+<ul><li>每一列中的分量是同一类型的数据，来自同一个域</li></ul><br>
+
+<li>不同的列可出自同一个域</li><br>
+<ul><li>其中的每一列称为一个属性,不同的属性要给予不同的属性名</li></ul><br>
+
+<li>列的顺序无所谓</li><br>
+<ul><li>列的次序可以任意交换</li><br>
+<li>遵循这一性质的数据库产品(如ORACLE)，增加新属性时，永远是插至最后一列
+	但也有许多关系数据库产品没有遵循这一性质，例如FoxPro仍然区分了属性顺序</li></ul><br>
+<li>任意两个元组不能完全相同</li><br>
+<ul><li>由笛卡尔积的性质决定</li><br>
+<li>但许多关系数据库产品没有遵循这一性质。</li><br>
+<li>例如:</li><br>
+<li>Oracle，FoxPro等都允许关系表中存在两个完全相同的元组，
+														除非用户特别定义了相应的约束条件。</li></ul><br>
+<li>行的顺序无所谓</li><br>
+<ul><li>行的次序可以任意交换</li><br>
+<li>遵循这一性质的数据库产品(如ORACLE)，插入一个元组时永远插至最后一行
+	但也有许多关系数据库产品没有遵循这一性质，例如FoxPro仍然区分了元组的顺序</li></ul><br>														
+<li>分量必须取原子值</li><br>
+<ul><li>每一个分量都必须是不可分的数据项。</li></ul><br></ol></ol></ol>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.2.2">2.2.2 关系模式</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">												
+<h4><a href="#2.2.2.1">2.2.2.1  什么是关系模式</a></h4>
+<h4><a href="#2.2.2.2">2.2.2.2  定义关系模式</a></h4>
+<h4><a href="#2.2.2.3">2.2.2.3  关系模式与关系</a></h4>	
+<br><br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.2.2.1">2.2.2.1 什么是关系模式</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ul><li>关系模式（Relation Schema）是型</li><br>
+<li>关系是值</li><br>
+<li>关系模式是对关系的描述</li><br>
+<ul><li>元组集合的结构</li><br>
+<ul><li>属性构成</li><br>
+<li>属性来自的域 </li><br>
+<li>属性与域之间的映象关系</li></ul><br>
+<li>元组语义以及完整性约束条件</li><br>
+<li>属性间的数据依赖关系集合</li></ul></ul><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.2.2.2">2.2.2.2  定义关系模式</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+
+<ul><li>关系模式可以形式化地表示为：R（U，D，dom，F）</li><br>
+<ul><li>R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关系名</li><br>
+<li>U&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;组成该关系的属性名集合</li><br>
+<li>D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;属性组U中属性所来自的域</li><br>
+<li>dom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;属性向域的映象集合</li><br>
+<li>F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;属性间的数据依赖关系集合</li></ul></ul><br>
+
+
+<ul><li>例:导师和研究生出自同一个域——人，取不同的属性名，并在模式中定义属性向域的映象，即说明它们分别出自哪个域：</li><br>
+<ul><li>dom（SUPERVISOR-PERSON)</li><br>
+<li>=dom（POSTGRADUATE-PERSON）</li><br>
+<li>=PERSON</li></ul></ul><br>
+<ul><li>关系模式通常可以简记为R(U)或R (A1，A2，…，An)</li><br>
+<ul><li>R&nbsp;&nbsp;关系名</li><br>
+<li>A1，A2，…，An&nbsp;&nbsp;属性名</li><br>
+<li>注：域名及属性向域的映象常常直接说明为属性的类型、长度</li></ul></ul><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.2.2.3">2.2.2.3  关系模式与关系</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ul><li>关系模式</li><br>
+<li>对关系的描述</li><br>
+<ul><li>静态的、稳定的</li><br>
+<li>关系</li></ul><br>
+<ul><li>关系模式在某一时刻的状态或内容</li><br>
+<li>动态的、随时间不断变化的</li></ul><br>
+<li>关系模式和关系往往统称为关系</li><br>
+<li>通过上下文加以区别</li></ul><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.2.3">2.2.3 关系数据库</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">	
+<ol start="1"><li>关系数据库</li><br>
+<ul><li>在一个给定的应用领域中，所有实体及实体之间联系的关系的集合构成一个关系数据库。</li></ul><br>
+<li>关系数据库的型与值</li><br>
+<ul><li>关系数据库也有型和值之分</li><br>
+<li>关系数据库的型称为关系数据库模式，是对关系数据库的描述</li><br>
+<ul><li>若干域的定义</li><br>
+<li>在这些域上定义的若干关系模式</li></ul><br>
+<li>关系数据库的值是这些关系模式在某一时刻对应的关系的集合，通常简称为关系数据库</li></ul><br>
+</ol>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="2.3">2.3  关系的完整性</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+关系模型的完整性规则是对关系的某种约束条件。关系模型中三类完整性约束：<br><br>	
+<h3><a href="#2.3.1">2.3.1 实体完整性</a></h3>
+<h3><a href="#2.3.2">2.3.2 参照完整性</a></h3>
+<h3><a href="#2.3.3">2.3.3 用户定义的完整性</a></h3>
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.3.1">2.3.1 实体完整性</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ul><li>实体完整性规则（Entity Integrity）若属性A是基本关系R的主属性，则属性A不能取空值</li><br>
+<li>例:SAP(SUPERVISOR，SPECIALITY，POSTGRADUATE)POSTGRADUATE属性为主码（假设研究生不会重名），则其不能取空值</li><br>
+<li>关系模型必须遵守实体完整性规则的原因</li><br>
+<ol start="1"><li>实体完整性规则是针对基本关系而言的。一个基本表通常对应现实世界的一个实体集或多对多联系。</li><br>
+<li>现实世界中的实体和实体间的联系都是可区分的，即它们具有某种唯一性标识。</li><br>
+<li>相应地，关系模型中以主码作为唯一性标识。</li><br>
+<li>主码中的属性即主属性不能取空值。空值就是“不知道”或“无意义”的值。
+		主属性取空值，就说明存在某个不可标识的实体，即存在不可区分的实体，这与第（2）点相矛盾，因此这个规则称为实体完整性。</li></ol><br>
+</ul>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.3.2">2.3.2 参照完整性</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ol start="1"><li>关系间的引用</li><br>
+<ul><li>在关系模型中实体及实体间的联系都是用关系来描述的，因此可能存在着关系与关系间的引用。</li></ul><br>
+<li>外码（Foreign Key）</li><br>
+<ul><li>设F是基本关系R的一个或一组属性，但不是关系R的码。如果F与基本关系S的主码Ks相对应，</li><br>
+<li>则称F是基本关系R的外码基本关系R称为参照关系（Referencing Relation）</li><br>
+<li>基本关系S称为被参照关系（ReferencedRelation）或目标关系（Target Relation）。</li></ul><br>
+<ul><li>说明</li><br>
+<ul><li>关系R和S不一定是不同的关系</li><br>
+<li>目标关系S的主码Ks 和参照关系的外码F必须定义在同一个（或一组）域上</li><br>
+<li>外码并不一定要与相应的主码同名当外码与相应的主码属于不同关系时，往往取相同的名字，以便于识别</li><br>
+<li>简而言之：在两个参照和被参照的关系中，参照关系中的每个元组的外码或者为空或者等于被参照关系中的某个元组的主码</li></ul></ul><br>
+<li>参照完整性规则</li><br>
+<ul><li>若属性（或属性组）F是基本关系R的外码它与基本关系S的主码Ks相对应（基本关系R和S不一定是不同的关系），
+	则对于R中每个元组在F上的值必须为：</li><br>
+<ul><li>或者取空值（F的每个属性值均为空值）</li><br>
+<li>或者等于S中某个元组的主码值。</li></ul></ul><br>
+</ol>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.3.3">2.3.3 用户定义的完整性</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ul><li>用户定义的完整性是针对某一具体关系数据库的约束条件，反映某一具体应用所涉及的数据必须满足的语义要求。</li><br>
+<li>关系模型应提供定义和检验这类完整性的机制，以便用统一的系统的方法处理它们，而不要由应用程序承担这一功能。</li></ul><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h2><a name="2.4">2.4  关系代数</a></h2>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<h3><a href="#2.4.1">2.4.1 概述</a></h3>
+<h3><a href="#2.4.2">2.4.2 传统的集合运算</a></h3>
+<h3><a href="#2.4.3">2.4.3 专门的关系运算</a></h3>
+<br><br><br><br><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.4.1">2.4.1 概述</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ol start="1"><li>关系代数</li><br>
+<ul><li>一种抽象的查询语言</li><br>
+<ul><li>用对关系的运算来表达查询</li></ul></ul><br>
+<li>关系代数运算的三个要素</li><br>
+<ul><li>运算对象：关系</li><br>
+<li>运算结果：关系</li><br>
+<li>运算符：四类——集合运算符，专门的关系运算符，比较运算符，逻辑运算符</li></ul><br>
+<ul><ol start="1"><li>集合运算符</li><br>
+<ul><li>将关系看成元组的集合</li><br>
+<li>运算是从关系的“水平”方向即行的角度来进行</li></ul><br>
+<li>专门的关系运算符</li><br>
+<ul><li>不仅涉及行而且涉及列</li></ul><br>
+<li>算术比较符</li><br>
+<ul><li>辅助专门的关系运算符进行操作</li></ul><br>
+<li>逻辑运算符</li><br>
+<ul><li>辅助专门的关系运算符进行操作</li></ul></ol></ul><br>
+<li>关系代数运算的分类</li><br>
+<ul><li>传统的集合运算</li><br>
+<ul><li>并、差、交、广义笛卡尔积</li></ul><br>
+<li>专门的关系运算</li><br>
+<ul><li>选择、投影、连接、除</li></ul></ul><br>
+<li>表示记号</li><br>
+<ol start="1">
+<li>R，t∈R，t[Ai]设关系模式为R(A1，A2，…，An)它的一个关系设为R。t∈R表示t是R的一个元组t[Ai]则表示元组t中相应于属性Ai的一个分量</li><br>
+<li>A，t[A]，A若A={Ai1，Ai2，…，Aik}，其中Ai1，Ai2，…，Aik是A1，A2，…，An中的一部分，
+   则A称为属性列或域列。t[A]=(t[Ai1]，t[Ai2]，…，t[Aik])表示元组t在属性列A上诸分量的集合。
+   A则表示{A1，A2，…，An}中去掉{Ai1，Ai2，…，Aik}后剩余的属性组。 </li></ol><br></ol>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.4.2">2.4.2 传统的集合运算</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ol start="1"><li>并</li><br>
+<ul><li>R和S</li><br>
+<ul><li>具有相同的目n（即两个关系都有n个属性）</li><br>
+<li>相应的属性取自同一个域</li></ul><br>
+<li>R∪S</li><br>
+<ul><li>仍为n目关系，由属于R或属于S的元组组成R∪S = { t|t∈R∨t∈S }</li></ul><br>
+</ul></ol>
+<img src="images/secondteach-2.png"><br><br>
+<img src="images/secondteach-3.png"><br><br>
+<img src="images/secondteach-4.png"><br><br><br>
+<ol start="2"><li>差</li><br>
+<ul><li>R和S</li><br>
+<ul><li>具有相同的目n</li><br>
+<li>相应的属性取自同一个域</li></ul><br>
+<li>R - S</li><br>
+<ul><li>仍为n目关系，由属于R而不属于S的所有元组组成R -S = { t|t∈R∧t∈S }</li></ul></ul><br></ol>
+<img src="images/secondteach-2.png"><br><br>
+<img src="images/secondteach-3.png"><br><br>
+<img src="images/secondteach-5.png"><br><br>
+<img src="images/secondteach-6.png"><br><br>
+<img src="images/secondteach-7.png"><br><br>
+<img src="images/secondteach-8.png"><br><br><br>
+
+
+<ol start="3"><li>交</li><br>
+<ul><li>R和S</li><br>
+<ul><li>具有相同的目n</li><br>
+<li>相应的属性取自同一个域</li></ul><br>
+<li>R∩S</li><br>
+<ul><li>仍为n目关系，由既属于R又属于S的元组组成 R∩S = { t|t∈R∧t∈S },R∩S = R –(R-S）</li></ul></ul></ol><br>
+<img src="images/secondteach-2.png"><br><br>
+<img src="images/secondteach-3.png"><br><br>
+<img src="images/secondteach-9.png"><br><br><br>
+<ol start="4"><li>广义笛卡尔积</li><br>
+<ul>
+<li>R</li><br>
+<ul><li>n目关系，k1个元组</li></ul><br>
+<li>S</li><br>
+<ul><li>m目关系，k2个元组</li></ul><br>
+<li>R×S</li><br>
+<ul><li>列：（n+m）列的元组的集合</li><br>
+<ul><li>元组的前n列是关系R的一个元组</li><br>
+<li>后m列是关系S的一个元组</li></ul><br>
+<li>行：k1×k2个元组</li><br>
+<ul><li>R×S = {tr ts |tr∈R ∧ ts∈S }</li></ul></ul><br>
+</ul></ol>
+<img src="images/secondteach-2.png"><br><br>
+<img src="images/secondteach-3.png"><br><br>
+<img src="images/secondteach-10.png"><br><br><br><br>
+<div align="right"><a href="#top">返回页首</a></div>
+<h3><a name="2.4.3">2.4.3 专门的关系运算</a></h3>
+<hr size="3px" align="center" style="border:solid" noshade="noshade">
+<ol start="1"><li>选择</li><br>
+<ol start="1">
+<li>选择又称为限制（Restriction）</li><br>
+<li>选择运算符的含义</li><br>
+<ul><li>在关系R中选择满足给定条件的诸元组σF(R) = {t|t∈R∧F(t)= '真'}</li><br>
+<li>F：选择条件，是一个逻辑表达式，基本形式为：[﹁( ] X1θY1 [ )][φ[﹁( ] X2θY2 [ )]]…</li><br>
+<ul><li>θ：比较运算符（＞，≥，＜，≤，＝或<>）</li><br>
+<li>X1，Y1等：属性名、常量、简单函数；属性名也可以用它的序号来代替；</li><br>
+<li>φ：逻辑运算符（∧或∨）</li><br>
+<li>[ ]：表示任选项</li><br>
+<li>…：表示上述格式可以重复下去</li></ul></ul><br>
+<li>选择运算是从行的角度进行的运算</li><br></ol></ol>
+<img src="images/secondteach-11.png"><br><br>
+<ul><ol start="4"><li>举例</li><br>
+<ul><li>[例1]设有一个学生-课程数据库，包括学生关系Student、课程关系Course和选修关系SC。</li></ul><br></ol></ul>
+<img src="images/secondteach-12.png"><br><br>
+<img src="images/secondteach-13.png"><br><br>
+<img src="images/secondteach-14.png"><br><br>
+<ul><ul><ul><li>[例2]查询信息系（IS系）全体学生σSdept = 'IS' (Student)或 σ5 ='IS' (Student)</li><br>
+<li>结果：</li></ul></ul></ul><br>
+ <img src="images/secondteach-15.png"><br><br>
+<ul><ul><ul><li>[例3]查询年龄小于20岁的学生σSage < 20(Student) 或 σ4 < 20(Student) </li><br>
+<li>结果：</li></ul></ul></ul><br>
+<img src="images/secondteach-15-1.png"><br><br>
+<ul><ul><ul><li>[例4]查询女学生 σSsex ＝’女’(Student)或 σ3 ＝’女’(Student)</li><br>
+<li>结果：</li></ul></ul></ul><br>
+<img src="images/secondteach-16.png"><br><br><br>
+<ol start="2"><li>投影</li><br>
+<ol start="1"><li>投影运算符的含义</li><br>
+<ul><li>从R中选择出若干属性列组成新的关系πA(R) = { t[A] | t∈R }</li><br>
+<li>A：R中的属性列</li></ul><br>
+<li>投影操作主要是从列的角度进行运算</li><br></ol></ol>
+<img src="images/secondteach-17.png"><br><br>
+<ul><ul><ul><li>但投影之后不仅取消了原关系中的某些列，而且还可能取消某些元组（避免重复行）</li></ul></ul></ul><br>
+<img src="images/secondteach-18.png"><br><br>
+<ul><ol start="3"><li>举例</li><br>
+<ul><li>[例5]查询学生的姓名和所在系</li><br>
+<li>即求Student关系上学生姓名和所在系两个属性上的投影πSname，Sdept(Student)或π2，5(Student)</li><br>
+<li>结果：</li></ul><br>
+</ol></ul>
+<img src="images/secondteach-19.png"><br><br><br>
+<ul><ul><ul><li>[例6]查询学生关系Student中都有哪些系πSdept(Student)</li><br>
+<li>结果：</li></ul></ul></ul><br>
+<img src="images/secondteach-20.png"><br><br><br>
+<ol start="3"><li>连接</li><br>
+<ol start="1">
+<li>连接也称为θ连接</li><br>
+<li>连接运算的含义</li><br>
+<ul><li>从两个关系的笛卡尔积中选取属性间满足一定条件的元组</li></ul><br></ol></ol>
+<img src="images/secondteach-20-1.png"><br><br>
+<ul><ul><ul><ul>
+<li>A和B：分别为R和S上度数相等且可比的属性组</li><br>
+<li>θ：比较运算符</li></ul><br>
+<li>连接运算从R和S的广义笛卡尔积R×S中选取（R关系）在A属性组上的值与（S关系）在B属性组上值满足比较关系的元组。</li></ul></ul></ul><br>
+<ul><ol start="3"><li>两类常用连接运算</li><br>
+<ul><li>等值连接（equijoin）</li><br>
+<ul><li>什么是等值连接</li><br>
+<ul><li>θ为“＝”的连接运算称为等值连接</li></ul><br>
+<li>等值连接的含义</li><br>
+<ul><li>从关系R与S的广义笛卡尔积中选取A、B属性值相等的那些元组，即等值连接为：</li></ul><br>
+</ul></ul></ol></ul>
+<img src="images/secondteach-20-2.png"><br><br>
+<ul><ul><ul><li>自然连接（Natural join）</li><br>
+<ul><li>什么是自然连接</li><br>
+<ul><li>自然连接是一种特殊的等值连接</li><br>
+<li>两个关系中进行比较的分量必须是相同的属性组</li><br>
+<li>在结果中把重复的属性列去掉</li></ul><br>
+<li>自然连接的含义</li><br>
+<ul><li>R和S具有相同的属性组B</li></ul><br>
+</ul></ul></ul></ul>
+<img src="images/secondteach-20-3.png"><br><br>
+<ul><ol start="4"><li>一般的连接操作是从行的角度进行运算。</li><br></ol></ul>
+<img src="images/secondteach-21.png"><br><br>
+<ul><ul><ul><li>自然连接还需要取消重复列，所以是同时从行和列的角度进行运算。</li></ul></ul></ul><br>
+<ul><ol start="5"><li>举例</li><br></ol></ul>
+<img src="images/secondteach-22.png"><br><br>
+<img src="images/secondteach-23.png"><br><br>
+<img src="images/secondteach-24.png"><br><br>
+<img src="images/secondteach-25.png"><br><br>
+<img src="images/secondteach-26.png"><br><br>
+外连接
+<ul><li>两个关系R和S在做自然连接时，选择两个关系在公共属性上值相等的元组构成新的关系。
+关系R中某些元组可能在S中不存在公共属性上值相等的元组，R中这些元组就在操作时被舍弃。</li><br>
+<li>如果把舍弃的元组也保存在结果关系中，而在其他属性上填空值，那么这种连接叫外连接。</li><br>
+<li>如果只把左边关系R中要舍弃的元组保留就叫做左外连接</li><br>
+<li>如果只把右边关系S中要舍弃的元组保留就叫做右外连接</li></ul><br>
+
+<img src="images/secondteach-27.png"><br><br><br><br>
+<ol start="4"><li>除（Division</li><br>
+<ol start="1"><li>给定关系R (X，Y) 和S (Y，Z)，其中X，Y，Z为属性组。R中的Y与S中的Y可以有不同的属性名，但必须出自相同的域集。
+R与S的除运算得到一个新的关系P(X)，P是R中满足下列条件的元组在X属性列上的投影：元组在X上分量值x的象集Yx包含S在Y上投影的集合。</li><br>
+</ol></ol>
+<img src="images/secondteach-20-4.png"><br><br>
+<ul><ul><ul><li>Yx：x在R中的象集，x = tr[X]</li></ul></ul></ul><br>
+<ul><ol start="2"><li>除操作是同时从行和列角度进行运算</li></ol></ul><br>
+<img src="images/secondteach-28.png"><br><br>
+
+
+</body>
+</html>
