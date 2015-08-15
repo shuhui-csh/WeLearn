@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/practicebackground"
+    android:orientation="vertical" >
+
+    <include layout="@layout/titlebar" />
+
+    <GridView
+        android:id="@+id/practiceview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="20dp"
+        android:background="@null"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="40dp" >
+    </GridView>
+
+</LinearLayout>
