@@ -107,7 +107,7 @@ public class LearingFragment extends Fragment {
 				case 1:
 					intent = new Intent();
 					intent.setClass(getActivity(), LearnActivity.class);
-					startActivity(intent);
+			 		startActivity(intent);
 					break;
 				case 2:
 					intent = new Intent();
